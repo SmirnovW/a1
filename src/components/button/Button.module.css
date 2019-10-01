@@ -1,0 +1,20 @@
+.container {
+  width: 128px;
+  height: 32px;
+  border-radius: 4px;
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-regular);
+  color: var(--color-main-white);
+  background: var(--color-accent-regular);
+  border: none;
+  outline: none;
+  border: 2px solid transparent;
+}
+
+.container:active {
+  background: var(--color-accent-active);
+}
+
+.container:focus {
+  border: 2px solid var(--color-accent-focus);
+}

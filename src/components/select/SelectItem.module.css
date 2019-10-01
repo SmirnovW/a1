@@ -1,0 +1,16 @@
+.container {
+  color: var(--color-main-dark);
+  font-size: var(--font-size-medium);
+  width: 100%;
+  padding: 8px 12px;
+  background: transparent;
+  border-bottom: 2px solid var(--color-main-light);
+  text-align: left;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.container:hover {
+  background: var(--color-accent-regular);
+  color: var(--color-main-light);
+}
