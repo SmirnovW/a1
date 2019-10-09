@@ -1,9 +1,20 @@
 import * as React from 'react';
 import { render } from 'react-dom';
-import { App } from 'views/App';
+import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'connected-react-router';
+
+import { App } from 'app/App';
+import { configureStore, history } from 'store';
+
 import '../server';
 
-import 'css/variables.css';
-import 'normalize.css';
+const store = configureStore();
 
-render(<App />, document.getElementById('root'));
+render(
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <App />
+    </ConnectedRouter>
+  </Provider>,
+  document.getElementById('root')
+);
