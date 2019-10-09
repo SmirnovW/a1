@@ -1,5 +1,6 @@
-import { cars, ICar } from '../mocks/cars';
+import { cars } from '../mocks/cars';
 import { MockRequest, MockResponse } from 'xhr-mock';
+import { ICar } from '../types';
 
 const ITEMS_PER_PAGE = 10;
 
@@ -24,7 +25,7 @@ function filterByProperty(
   return collection;
 }
 
-export function getCar(req: MockRequest, res: MockResponse) {
+export async function getCar(req: MockRequest, res: MockResponse) {
   const url = req.url();
   const stockNumber = url.path ? url.path.match(/(\d+)/) : [];
 
@@ -34,6 +35,14 @@ export function getCar(req: MockRequest, res: MockResponse) {
       })
     : null;
 
+  await new Promise(resolve => {
+    setTimeout(() => {
+      resolve('Time out simulation');
+    }, 1000);
+  }).then(data => {
+    console.log(`⏰ %c${data}`, 'color: green;');
+  });
+
   if (car) {
     return res.status(201).body(JSON.stringify({ car }));
   } else {
@@ -41,7 +50,7 @@ export function getCar(req: MockRequest, res: MockResponse) {
   }
 }
 
-export function getCars(req: MockRequest, res: MockResponse) {
+export async function getCars(req: MockRequest, res: MockResponse) {
   const url = req.url();
   const query = new URLSearchParams(url.query);
 
@@ -71,6 +80,14 @@ export function getCars(req: MockRequest, res: MockResponse) {
       return a.stockNumber - b.stockNumber;
     });
   }
+
+  await new Promise(resolve => {
+    setTimeout(() => {
+      resolve('Time out simulation');
+    }, 1000);
+  }).then(data => {
+    console.log(`⏰ %c${data}`, 'color: green;');
+  });
 
   return res.status(201).body(
     JSON.stringify({

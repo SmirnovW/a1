@@ -1,4 +1,4 @@
-import nanoid from 'nanoid';
+const nanoid = require('nanoid');
 import { IManufacturer } from '../types';
 
 export const manufacturers: Array<IManufacturer> = [
