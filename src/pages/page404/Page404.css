@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    margin-top: 250px;
+}
+
+.title {
+    font-size: var(--font-size-large);
+    color: var(--color-main-dark);
+}
+
+.text {
+    font-size: var(--font-size-medium);
+    color: var(--color-main-dark);
+}

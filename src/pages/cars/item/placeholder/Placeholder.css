@@ -1,0 +1,41 @@
+.container {
+    padding: 12px;
+    height: 95px;
+    border: 2px solid var(--color-main-light);
+    display: flex;
+    box-sizing: border-box;
+}
+
+.image {
+    width: 80px;
+    height: 67px;
+    background: var(--color-main-light);
+}
+
+.content {
+    margin-left: 40px;
+    color: var(--color-main-dark);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.description {
+    width: 250px;
+    height: 15px;
+    margin-bottom: 5px;
+    background: var(--color-main-light);
+}
+
+.title {
+    width: 250px;
+    height: 25px;
+    background: var(--color-main-light);
+}
+
+.details {
+    width: 100px;
+    height: 15px;
+    background: var(--color-main-light);
+}

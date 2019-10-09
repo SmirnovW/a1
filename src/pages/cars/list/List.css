@@ -1,7 +1,7 @@
 .header {
   display: flex;
   justify-content: space-between;
-  font-family: var(--font-family-default);
+
   color: var(--color-main-dark);
   margin-bottom: 24px;
 }
@@ -26,6 +26,6 @@
   margin-bottom: 10px;
 }
 
-.sort {
-  width: 350px;
+.item:last-child {
+  margin: 0;
 }
