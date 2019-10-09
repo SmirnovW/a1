@@ -1,0 +1,19 @@
+.container {
+    color: var(--color-accent-regular);
+    text-decoration: none;
+    font-size: inherit;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+}
+
+.container:hover {
+    color: var(--color-accent-active);
+    text-decoration: underline;
+}
+
+.disabled {
+    pointer-events: none;
+}
