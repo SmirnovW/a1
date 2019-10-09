@@ -1,3 +1,14 @@
+# Getting Started
+
+yarn install - install
+
+yarn start - run dev server
+
+yarn test - run tests
+
+yarn eslint - run linter
+
+
 # Design
 
 [https://github.com/squirreljuror/api-design-and-styles/blob/master/design-and-style-guide.pdf]()
