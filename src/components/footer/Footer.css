@@ -1,0 +1,9 @@
+.container {
+    display: flex;
+    height: 80px;
+    border-top: 2px solid var(--color-main-light);
+    justify-content: center;
+    align-items: center;
+    color: var(--color-main-dark);
+    font-size: var(--font-size-small);
+}

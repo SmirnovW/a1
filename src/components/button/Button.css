@@ -2,13 +2,13 @@
   width: 128px;
   height: 32px;
   border-radius: 4px;
-  font-family: var(--font-family-default);
-  font-size: var(--font-size-regular);
+
+  font-size: var(--font-size-small);
   color: var(--color-main-white);
   background: var(--color-accent-regular);
-  border: none;
   outline: none;
   border: 2px solid transparent;
+  cursor: pointer;
 }
 
 .container:active {

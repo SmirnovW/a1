@@ -1,0 +1,13 @@
+.container {
+  list-style: none;
+  padding: 24px;
+  margin: 0;
+  text-align: center;
+}
+
+.item {
+  margin: 0 10px;
+  display: inline-block;
+  color: var(--color-main-dark);
+  font-size: var(--font-size-small);
+}

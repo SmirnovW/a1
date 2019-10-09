@@ -2,10 +2,10 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-import { Context } from './context';
+import { Context } from '../context/context';
+import { ContextData } from '../context/types';
 
-import styles from './Select.module.css';
-import { ContextData } from './context.d';
+import styles from './Select.css';
 
 interface MouseEvent extends Event {
   target: Node | null;
@@ -14,21 +14,24 @@ interface MouseEvent extends Event {
 type Props = {
   children: Array<React.ReactElement>;
   title: React.ReactNode;
-  onClick: (value: React.ReactNode) => void;
+  onClick: (value: React.ReactNode, name: string) => void;
+  name: string;
 };
 
 export const Select: React.FC<Props> = React.memo(
   (props): React.ReactElement => {
     const [data, setData] = React.useState<ContextData>({
-      value: props.children[0].props.value,
-      label: props.children[0].props.children
+      value: props.children[0].props.value || '',
+      label: props.children[0].props.children || ''
     });
     const [isActive, setActivity] = React.useState<boolean>(false);
 
     /**
      * Handles button click
      */
-    const onControlClick = () => setActivity(activity => !activity);
+    const onControlClick = (): void => {
+      setActivity(activity => !activity);
+    };
 
     const select = React.useRef<HTMLButtonElement>(null);
 
@@ -36,7 +39,7 @@ export const Select: React.FC<Props> = React.memo(
      * Handle outside click
      * @param {MouseEvent} event - DOM event
      */
-    const onOutsideClick = (event: MouseEvent) => {
+    const onOutsideClick = (event: MouseEvent): void => {
       if (select.current && select.current.contains(event.target)) return;
       setActivity(false);
     };
@@ -44,19 +47,22 @@ export const Select: React.FC<Props> = React.memo(
     React.useEffect(() => {
       window.addEventListener('click', onOutsideClick);
 
-      return () => {
+      return (): void => {
         window.removeEventListener('click', onOutsideClick);
       };
     }, []);
 
     return (
-      <Context.Provider value={{ data, setData, onChange: props.onClick }}>
+      <Context.Provider
+        value={{ data, setData, onChange: props.onClick, name: props.name }}
+      >
         <Context.Consumer>
-          {({ data }) => (
+          {({ data: { label } }): React.ReactNode => (
             <div
               className={classNames(styles.container, {
                 [styles.active]: isActive
               })}
+              data-testid="select"
             >
               <p className={styles.title}>{props.title}</p>
               <button
@@ -64,8 +70,10 @@ export const Select: React.FC<Props> = React.memo(
                 className={styles.control}
                 aria-expanded={isActive}
                 ref={select}
+                name={props.name}
+                type="button"
               >
-                {data.label}
+                {label}
               </button>
               <ul role="listbox" className={styles.list}>
                 {props.children}

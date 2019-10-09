@@ -1,10 +1,9 @@
 // Default Select.
 import * as React from 'react';
-import classNames from 'classnames';
 
-import { Context } from './context';
+import { Context } from '../context/context';
 
-import styles from './SelectItem.module.css';
+import styles from './SelectItem.css';
 
 type Props = {
   children: React.ReactNode;
@@ -20,20 +19,21 @@ export const SelectItem: React.FC<Props> = React.memo(
       if (selected) {
         context.setData({ value, label: children });
       }
-    }, [children, value]);
+    }, [children, value, selected]);
 
     /**
      * Handles item click
      */
-    const onCLick = () => {
+    const onCLick = (): void => {
       context.setData({
         value,
         label: children
       });
-      context.onChange(value);
+      context.onChange(value, context.name);
     };
 
     return (
+      // eslint-disable-next-line jsx-a11y/click-events-have-key-events
       <li
         onClick={onCLick}
         className={styles.container}

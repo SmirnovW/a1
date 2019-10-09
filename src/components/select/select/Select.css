@@ -1,5 +1,5 @@
 .container {
-  font-family: var(--font-family-default);
+
   position: relative;
 }
 
@@ -54,7 +54,7 @@
   border: 2px solid var(--color-main-light);
   padding: 0;
   margin: 8px 0;
-  font-family: var(--font-family-default);
+
   position: absolute;
   width: 100%;
   box-sizing: border-box;

@@ -1,14 +1,17 @@
 import * as React from 'react';
-
 import { Link } from 'react-router-dom';
 
 import { Logo } from 'components/logo/Logo';
 
-import styles from './header.module.css';
+import styles from './Header.css';
 
 export const Header = React.memo(() => {
   return (
-    <header className={styles.container}>
+    <header
+      className={styles.container}
+      data-testid="header"
+      style={{ position: 'fixed' }}
+    >
       <Logo />
       <nav>
         <ul className={styles.navigation}>
